@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //   })[0].name
     // }`;
 
+    // rendering bruce banner using original array
     bruceImage.src = bruceBanner[0].image;
     bruceName.innerHTML = `${bruceBanner[0].name}`;
   });

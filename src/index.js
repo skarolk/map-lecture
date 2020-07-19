@@ -37,8 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
   bruceBannerContainer.innerHTML = renderBruceBanner(bruceBanner[0]);
 
   transformTonyStark.addEventListener("click", (e) => {
-    // our original tony stark array
-    console.log("original tony stark array", tonyStark);
+    // our primary tony stark array
+    console.log("primary tony stark array", tonyStark);
     const tonyImage = document.getElementById("tonyImage");
     const tonyName = document.getElementById("tonyName");
 
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return tonyName.innerHTML === "Tony Stark" ? tonyStark[1] : tonyStark[0];
     });
     console.log("map transformed tony stark array", transformedTony);
-    console.log("original tony stark array", tonyStark);
+    console.log("primary tony stark array", tonyStark);
 
     // rendering tony stark with map
     tonyImage.src = tonyStark.map((tony) => {
@@ -63,8 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   transformBruceBanner.addEventListener("click", (e) => {
-    // our original bruce banner array
-    console.log("original bruce banner array", bruceBanner);
+    // our primary bruce banner array
+    console.log("primary bruce banner array", bruceBanner);
     const bruceImage = document.getElementById("bruceImage");
     const bruceName = document.getElementById("bruceName");
 
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     );
     console.log("forEach transformed bruce banner array", transformedBruce);
-    console.log("original bruce banner array", bruceBanner);
+    console.log("primary bruce banner array", bruceBanner);
 
     // ERROR: can't string methods when rendering bruce banner with forEach
     // bruceImage.src = bruceBanner.forEach((bruce) => {

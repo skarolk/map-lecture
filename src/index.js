@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const bruceBannerContainer = document.getElementById(
     "bruce-banner-container"
   );
+  const transformBruceBanner = document.getElementById(
+    "transform-bruce-banner"
+  );
 
   const tonyStark = [
     {
@@ -26,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       name: "Hulk",
       image:
-        "https://media.wired.com/photos/59325c9d5c4fbd732b5520e7/191:100/pass/hulkbuster-ft.jpg",
+        "https://www.denofgeek.com/wp-content/uploads/2019/03/incredible-hulk-key-art.jpg?resize=768%2C432",
     },
   ];
 
@@ -35,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   transformTonyStark.addEventListener("click", (e) => {
     // our original tony stark array
-    console.log("original array", tonyStark);
+    console.log("original tony stark array", tonyStark);
     const tonyImage = document.getElementById("tonyImage");
     const tonyName = document.getElementById("tonyName");
 
@@ -43,8 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const transformedTony = tonyStark.map((tony) => {
       return tonyName.innerHTML === "Tony Stark" ? tonyStark[1] : tonyStark[0];
     });
-    console.log("transformed array", transformedTony);
-    console.log("original array", tonyStark);
+    console.log("map transformed tony stark array", transformedTony);
+    console.log("original tony stark array", tonyStark);
 
     // rendering tony stark with map
     tonyImage.src = tonyStark.map((tony) => {
@@ -57,6 +60,41 @@ document.addEventListener("DOMContentLoaded", () => {
           : tonyStark[0];
       })[0].name
     }`;
+  });
+
+  transformBruceBanner.addEventListener("click", (e) => {
+    // our original bruce banner array
+    console.log("original bruce banner array", bruceBanner);
+    const bruceImage = document.getElementById("bruceImage");
+    const bruceName = document.getElementById("bruceName");
+
+    // UNDEFINED: the transformed bruce banner array
+    const transformedBruce = bruceBanner.forEach(
+      (bruce, index, bruceBanner) => {
+        bruceName.innerHTML === "Bruce Banner"
+          ? (bruceBanner[index] = bruceBanner[1])
+          : (bruceBanner[index] = bruceBanner[0]);
+      }
+    );
+    console.log("forEach transformed bruce banner array", transformedBruce);
+    console.log("original bruce banner array", bruceBanner);
+
+    // ERROR: can't string methods when rendering bruce banner with forEach
+    // bruceImage.src = bruceBanner.forEach((bruce) => {
+    //   return bruceName.innerHTML === "Bruce Banner"
+    //     ? bruceBanner[1]
+    //     : bruceBanner[0];
+    // })[0].image;
+    // bruceName.innerHTML = `${
+    //   bruceBanner.forEach((bruce) => {
+    //     return bruceName.innerHTML === "Bruce Banner"
+    //       ? bruceBanner[1]
+    //       : bruceBanner[0];
+    //   })[0].name
+    // }`;
+
+    bruceImage.src = bruceBanner[0].image;
+    bruceName.innerHTML = `${bruceBanner[0].name}`;
   });
 });
 
